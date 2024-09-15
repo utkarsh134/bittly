@@ -1,18 +1,19 @@
 import mongoose from "mongoose";
-import { DB_NAME } from "../constants.js";
+const DB_NAME = "vidyagxp"
 
-const connectDB = async () => {
+export const connectToMongoDB = async () => {
   try {
     const connectionInstance = await mongoose.connect(
-      `${process.env.MONGODB_URI}/${DB_NAME}`
-    );
+      `${process.env.MONGODB_URI}/${DB_NAME}`) ;
+
     console.log(
       `\n MongoDB connected !! DB HOST: ${connectionInstance.connection.host}`
     );
   } catch (error) {
     console.log("MONGODB connection FAILED", error);
-    process.exit(1); // Explore more about it
+    process.exit(1); 
   }
 };
 
-export { connectDB };
+// export default connectToMongoDB ;
+// module.exports = { connectToMongoDB };

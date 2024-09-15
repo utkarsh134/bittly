@@ -11,9 +11,14 @@ const urlSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users",
+    },
     visitHistory: [{ timestamp: { type: Number } }],
   },
   { timestamps: true }
 );
 
-export const URL = mongoose.model('url', urlSchema) ;
+const URL = mongoose.model("url", urlSchema);
+export default URL;
